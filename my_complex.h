@@ -18,3 +18,7 @@ Complex complex_conj(Complex c);
 
 double magnitude(Complex c);
 double phase(Complex c);
+
+void handler1(Complex (*fn1)(Complex, Complex), Complex c1, Complex c2);
+void handler2(double (*fn2)(Complex), Complex c3);
+//Created two function handler declarations

@@ -44,7 +44,26 @@ Complex complex_mult(Complex c1, Complex c2) {
 Complex complex_div(Complex c1, Complex c2) {
 	double denom = magnitude(c2)*magnitude(c2);
 	Complex c = complex_mult(c1, complex_conj(c2));
-	c.real /= denom;
-	c.imag /= denom;
-	return c;
+	if(denom != 0) {
+		c.real /= denom;
+		c.imag /= denom;
+		return c;
+		//Only allows division if the denom != 0
+	}
+	else{
+		denom = 1;
+		c.real /= denom;
+		c.imag /= denom;
+		return c;
+	}// changes the denominator to 1, so the division will be possible for the computer to compute.
 }
+void handler1(Complex (*hdlr1)(Complex, Complex), Complex c1, Complex c2) {
+	Complex result = hdlr1(c1,c2);
+	print_complex(result);
+}//Creates a handler function to compute any of the functions that return a complex, and take two complex structures as inputs
+
+void handler2(double (*hdlr2)(Complex), Complex c1){
+	double result = hdlr2(c1);
+	printf("%lf\n", result);
+}// Creates a second handler function that computes any function that returns a double, and takes a Complex structure as an input. Then it prints the result.
+
