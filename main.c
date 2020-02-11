@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "my_complex.h"
 
+
 int main() {
 	Complex a = {3, 4};
 	Complex b = {5, 12};
@@ -23,7 +24,7 @@ int main() {
 	}
 
 	for(int j=0; j<4; j++) {
-		Complex_fns[i](a,b);
+		Complex_fns[j](a,b);
 	}
 
 
